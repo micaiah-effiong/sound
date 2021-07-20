@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EQ</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+      /*input[type="range"]{
+        transform: rotate(90deg);
+      }*/
+      /*html{
+        margin: 0;
+        background-color: #310c67;
+      }
+
+      canvas{
+        block-size: 100%;
+        inline-size:100%;
+      }
+
+      body{
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr;
+        margin: 0;
+      }*/
+    </style>
+  </head>
+  <body>
+    <div id="boomBox">
+      <audio id="player"></audio>
+      <button role="switch" aria-checked="false" id="playBtn">
+        <span>Play/Pause</span>
+      </button>
+      <div>
+        Volume
+        <input
+          type="range"
+          value="0.5"
+          step="0.01"
+          min="0"
+          max="1"
+          id="volumeBtn"
+        />
+      </div>
+      <div>
+        Pan
+        <input
+          type="range"
+          value="0"
+          step="0.01"
+          min="-1"
+          max="1"
+          id="panBtn"
+        />
+      </div>
+    </div>
+
+    <div>use filters <input type="checkbox" id="filterToggle" /></div>
+
+    <div>
+      <div>
+        detune
+        <input
+          type="range"
+          value="0"
+          step="1000"
+          min="0"
+          max="153600"
+          id="detuneBtn"
+        />
+      </div>
+      <div>
+        frequency
+        <input
+          type="range"
+          value="350"
+          step="100"
+          min="0"
+          max="22050"
+          id="frequencyBtn"
+        />
+      </div>
+      <div>
+        gain<input
+          type="range"
+          value="0"
+          step="1"
+          min="-40"
+          max="40"
+          id="gainBtn"
+        />
+      </div>
+      <div>
+        Q<input
+          type="range"
+          value="0"
+          step="10"
+          min="0.001"
+          max="1000"
+          id="qBtn"
+        />
+      </div>
+    </div>
+    <div>
+      <select id="filterType">
+        <option value="lowpass">lowpass</option>
+        <option value="highpass">highpass</option>
+        <option value="bandpass">bandpass</option>
+        <option value="lowshelf">lowshelf</option>
+        <option value="highshelf">highshelf</option>
+        <option value="peaking">peaking</option>
+        <option value="notch">notch</option>
+        <option value="allpass">allpass</option>
+      </select>
+    </div>
+    <input type="file" id="audioLoader" accept="audio/*" multiple />
+    <div>
+      Display audio files
+      <ul id="audioListDisplay"></ul>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
